@@ -12,7 +12,7 @@ struct EmojiArtDocumentView: View {
     @ObservedObject var document: EmojiArtDocument
     
     var body: some View {
-        ScrollView {
+        ScrollView(.horizontal) {
             HStack {
                 ForEach(EmojiArtDocument.palette.map { String($0) }, id: \.self) { emoji in
                     Text(emoji)
