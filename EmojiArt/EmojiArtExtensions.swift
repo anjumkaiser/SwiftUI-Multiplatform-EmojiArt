@@ -47,3 +47,12 @@ extension Array where Element == NSItemProvider {
             self.loadObjects(ofType: theType, firstOnly: true, using: load)
         }
 }
+
+// helper to convert global coordinates system to view's coordinate system
+extension GeometryProxy {
+    func convert(_ point: CGPoint, from coordinateSpace: CoordinateSpace) -> CGPoint {
+        let frame = self.frame(in: coordinateSpace)
+        return CGPoint(x: (point.x - frame.origin.x), y: (point.y - frame.origin.y))
+    }
+    
+}
